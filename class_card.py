@@ -1,8 +1,8 @@
 class Card:
-    def __init__(self, rank, suit, is_trump=False):
+    def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
-        self.is_trump = is_trump
+        self.is_trump = False
 
     def __repr__(self):
         return f"{self.rank} of {self.suit}" + (" (Trump)" if self.is_trump else "")

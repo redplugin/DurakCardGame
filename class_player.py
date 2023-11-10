@@ -6,12 +6,19 @@ class Player:
         # "Hand" is a set of cards that a player have at the moment
         self.hand = []
 
+    # deal cards to all players
     def deal(self, deck, *args):  # *args are players to deal cards in the beginning
         if self.is_dealer:
             # deal 6 cards to each player
             for player in args:
                 cards_to_deal = [deck.cards.pop() for _ in range(6)]
                 player.hand.append(cards_to_deal)
+
+                # reveal the trump suit by popping one more card and putting it at the beginning of the deck
+                card = deck.cards.pop()  # the card that defines trump suit
+
+                deck.cards.insert(0, card)
+
         else:
             raise ValueError("Only dealer can deal cards")
 
