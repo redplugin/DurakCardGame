@@ -21,6 +21,7 @@ class Player:
             return
 
         missing_cards_num = 6 - len(self.hand)
+        # when deck (list) is empty it will return IndexError exception
         while len(deck.cards) > 0 and missing_cards_num > 0:
             try:
                 card = deck.cards.pop()
