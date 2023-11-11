@@ -5,7 +5,7 @@ class Card:
         self.is_trump = False
 
     def __repr__(self):
-        return f"{self.rank} of {self.suit}" + (" (Trump)" if self.is_trump else "")
+        return f"{self.rank} {self.suit}" + (" (Trump)" if self.is_trump else "")
 
     def rank_value(self):
         if self.rank == "J":
@@ -37,3 +37,6 @@ class Card:
         else:
             return 1  # this card is more powerful
 
+    def set_trump(self, trump_suit):
+        if self.suit == trump_suit:
+            self.is_trump = True
